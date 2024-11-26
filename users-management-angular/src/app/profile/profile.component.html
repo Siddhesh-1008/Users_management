@@ -1,0 +1,19 @@
+<div class="container">
+
+  <!-- If there's an error message, display it in this paragraph -->
+  <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+
+  <h2>Profile Information</h2>
+  
+  <!-- Display user's name, email, and city from the `profileInfo` object -->
+  <p>Name: {{profileInfo?.ourUsers?.name}}</p> <!-- Shows the user's name -->
+  <p>Email: {{profileInfo?.ourUsers?.email}}</p> <!-- Shows the user's email -->
+  <p>City: {{profileInfo?.ourUsers?.city}}</p> <!-- Shows the user's city -->
+  <p>Role: {{profileInfo?.ourUsers?.role}}</p> <!-- Shows the user's city -->
+
+  <!-- If the user's role is 'ADMIN', show an "Update Profile" button -->
+  <button *ngIf="profileInfo?.ourUsers?.role === 'ADMIN'" (click)="updateProfile(profileInfo?.ourUsers?.id)">
+    Update Profile
+  </button>
+
+</div>
